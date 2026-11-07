@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saltanat Karamoldoeva | Frontend Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">Saltanat<span>.</span></a>
+
+    <nav>
+        <a href="#home" data-en="Home" data-ru="Главная">Home</a>
+        <a href="#about" data-en="About" data-ru="Обо мне">About</a>
+        <a href="#education" data-en="Education" data-ru="Образование">Education</a>
+        <a href="#skills" data-en="Skills" data-ru="Навыки">Skills</a>
+        <a href="#projects" data-en="Projects" data-ru="Проекты">Projects</a>
+        <a href="#contact" data-en="Contact" data-ru="Контакты">Contact</a>
+    </nav>
+
+    <button id="language-btn">RU</button>
+</header>
+
+<main>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="welcome" data-en="HELLO, I'M" data-ru="ПРИВЕТ, Я">HELLO, I'M</p>
+
+            <h1>Saltanat<br>Karamoldoeva</h1>
+
+            <h2 data-en="Aspiring Frontend Developer"
+                data-ru="Начинающий Frontend-разработчик">
+                Aspiring Frontend Developer
+            </h2>
+
+            <p data-en="I create clean, modern and responsive websites. I'm learning every day and turning ideas into real projects."
+               data-ru="Я создаю современные и адаптивные сайты. Каждый день учусь новому и превращаю идеи в реальные проекты.">
+                I create clean, modern and responsive websites.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn"
+                   data-en="View My Projects" data-ru="Мои проекты">
+                    View My Projects
+                </a>
+                <a href="#contact" class="btn btn-light"
+                   data-en="Contact Me" data-ru="Связаться со мной">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="images/my-photo.jpg" alt="Saltanat's photo">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <p class="section-label" data-en="01 / ABOUT ME" data-ru="01 / ОБО МНЕ">01 / ABOUT ME</p>
+
+        <h2 data-en="About Me" data-ru="Обо мне">About Me</h2>
+
+        <p class="section-text"
+           data-en="Hello! I'm Saltanat Karamoldoeva, an aspiring Frontend Developer and a university student at Al-Farabi University. I'm passionate about web development and enjoy creating clean, modern, and responsive websites. Currently, I'm developing my skills in HTML, CSS, and JavaScript through practical projects. I'm looking for an opportunity to join a team as a Frontend Developer Intern, gain real-world experience, and grow as a professional."
+           data-ru="Привет! Я Салтанат Карамолдоева, начинающий Frontend-разработчик и студентка университета Аль-Фараби. Я увлекаюсь веб-разработкой и люблю создавать красивые, современные и адаптивные сайты. Сейчас я развиваю свои навыки HTML, CSS и JavaScript с помощью практических проектов. Я ищу возможность пройти стажировку Frontend Developer Intern, получить реальный опыт работы в команде и профессионально развиваться.">
+            Hello! I'm Saltanat Karamoldoeva, an aspiring Frontend Developer.
+        </p>
+
+        <div class="about-details">
+            <div class="detail-card">
+                <span>📍</span>
+                <h3 data-en="Location" data-ru="Местоположение">Location</h3>
+                <p data-en="Bishkek, Kyrgyzstan" data-ru="Бишкек, Кыргызстан">Bishkek, Kyrgyzstan</p>
+            </div>
+
+            <div class="detail-card">
+                <span>🎓</span>
+                <h3 data-en="Education" data-ru="Образование">Education</h3>
+                <p data-en="University Student" data-ru="Студентка университета">University Student</p>
+            </div>
+
+            <div class="detail-card">
+                <span>💻</span>
+                <h3 data-en="Specialization" data-ru="Специализация">Specialization</h3>
+                <p data-en="Frontend Development" data-ru="Фронтенд-разработка">Frontend Development</p>
+            </div>
+
+            <div class="detail-card">
+                <span>🌱</span>
+                <h3 data-en="Currently Learning" data-ru="Сейчас изучаю">Currently Learning</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+        </div>
+
+        <div class="about-goal">
+            <h3 data-en="My Goal" data-ru="Моя цель">My Goal</h3>
+            <p data-en="My goal is to become a professional Frontend Developer, gain practical experience, and create useful digital experiences."
+               data-ru="Моя цель — стать профессиональным Frontend-разработчиком, получить практический опыт и создавать полезные цифровые продукты.">
+                My goal is to become a professional Frontend Developer.
+            </p>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+        <p class="section-label" data-en="02 / EDUCATION" data-ru="02 / ОБРАЗОВАНИЕ">02 / EDUCATION</p>
+
+        <h2 data-en="My Education" data-ru="Моё образование">My Education</h2>
+
+        <div class="education-card">
+            <span>🎓</span>
+            <h3>Al-Farabi University</h3>
+            <p data-en="Faculty: Infil" data-ru="Факультет: Инфил">Faculty: Infil</p>
+            <p data-en="University Student" data-ru="Студентка университета">University Student</p>
+        </div>
+
+        <div class="education-card">
+            <span>💻</span>
+            <h3 data-en="Frontend Development Course" data-ru="Курс Frontend-разработки">
+                Frontend Development Course
+            </h3>
+            <p data-en="Learning HTML, CSS and JavaScript through practical projects."
+               data-ru="Изучение HTML, CSS и JavaScript на практических проектах.">
+                Learning HTML, CSS and JavaScript through practical projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <p class="section-label" data-en="03 / MY SKILLS" data-ru="03 / МОИ НАВЫКИ">03 / MY SKILLS</p>
+
+        <h2 data-en="Skills & Technologies" data-ru="Навыки и технологии">
+            Skills & Technologies
+        </h2>
+
+        <p class="section-text"
+           data-en="Technologies I'm currently learning and using in my projects."
+           data-ru="Технологии, которые я сейчас изучаю и использую в своих проектах.">
+            Technologies I'm currently learning and using in my projects.
+        </p>
+
+        <div class="skills-grid">
+            <div class="skill-card">HTML5</div>
+            <div class="skill-card">CSS3</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">Flexbox</div>
+            <div class="skill-card">CSS Grid</div>
+            <div class="skill-card">Responsive Design</div>
+            <div class="skill-card">Git</div>
+            <div class="skill-card">GitHub</div>
+            <div class="skill-card">VS Code</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <p class="section-label" data-en="04 / MY WORK" data-ru="04 / МОИ РАБОТЫ">04 / MY WORK</p>
+
+        <h2 data-en="My Projects" data-ru="Мои проекты">My Projects</h2>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">🛍️</div>
+                <h3>Beauty Store</h3>
+                <p data-en="A beauty store website created with HTML, CSS and JavaScript. It includes product cards and shopping cart functionality."
+                   data-ru="Сайт магазина косметики, созданный с помощью HTML, CSS и JavaScript. Включает карточки товаров и функциональность корзины.">
+                    A beauty store website created with HTML, CSS and JavaScript.
+                </p>
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="https://github.com/" target="_blank"
+                   data-en="View Project →" data-ru="Посмотреть проект →">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🌷</div>
+                <h3 data-en="More Projects Coming Soon" data-ru="Скоро появятся новые проекты">
+                    More Projects Coming Soon
+                </h3>
+                <p data-en="I'm continuously learning and building new projects to improve my frontend development skills."
+                   data-ru="Я продолжаю учиться и создавать новые проекты, чтобы улучшать свои навыки фронтенд-разработки.">
+                    I'm continuously learning and building new projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+        <p class="section-label" data-en="05 / GET IN TOUCH" data-ru="05 / СВЯЗАТЬСЯ СО МНОЙ">
+            05 / GET IN TOUCH
+        </p>
+
+        <h2 data-en="Let's Connect!" data-ru="Давайте общаться!">Let's Connect!</h2>
+
+        <p class="section-text"
+           data-en="I'm open to internship opportunities, collaboration and new connections."
+           data-ru="Я открыта к предложениям о стажировке, сотрудничеству и новым знакомствам.">
+            I'm open to internship opportunities, collaboration and new connections.
+        </p>
+
+        <div class="contact-links">
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <a href="https://t.me/" target="_blank">Telegram</a>
+            <a href="mailto:YOUR_EMAIL@example.com">Email</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Saltanat Karamoldoeva.
+        <span data-en="Made with care." data-ru="Создано с заботой.">Made with care.</span>
+    </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
