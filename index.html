@@ -1,232 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saltanat Karamoldoeva | Frontend Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbf3f4">
+  <title>Saltanat Karamoldoeva — Frontend Developer</title>
+  <meta name="description" content="Saltanat Karamoldoeva — aspiring frontend developer from Bishkek. First-year English Philology student. HTML, CSS, JavaScript, React.">
+  <meta property="og:title" content="Saltanat Karamoldoeva — Frontend Developer">
+  <meta property="og:description" content="Aspiring frontend developer from Bishkek. Projects, education and contacts.">
+  <meta property="og:image" content="https://saltanat-portfolio.vercel.app/images/my-photo.jpg">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Тема день/ночь ставится сразу, до загрузки страницы, чтобы не было белой вспышки -->
+  <script>
+    try {
+      var dark = matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-    <a href="#home" class="logo">Saltanat<span>.</span></a>
-
-    <nav>
-        <a href="#home" data-en="Home" data-ru="Главная">Home</a>
-        <a href="#about" data-en="About" data-ru="Обо мне">About</a>
-        <a href="#education" data-en="Education" data-ru="Образование">Education</a>
-        <a href="#skills" data-en="Skills" data-ru="Навыки">Skills</a>
-        <a href="#projects" data-en="Projects" data-ru="Проекты">Projects</a>
-        <a href="#contact" data-en="Contact" data-ru="Контакты">Contact</a>
+  <!-- ШАПКА: маленькое фото появляется, когда большое уезжает -->
+  <header class="bar">
+    <a href="#home" class="logo">
+      <img class="logo-photo" id="logoPhoto" src="images/my-photo.jpg" alt="">
+      <span>Saltanat<b>.</b></span>
+    </a>
+    <nav class="links">
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#education" data-i18n="navEdu">Education</a>
+      <a href="#skills" data-i18n="navSkills">Skills</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
+    <div class="tools">
+      <div class="langs" role="group" aria-label="Language">
+        <button data-lang="ru">RU</button>
+        <button data-lang="kg">KG</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="theme-btn" id="themeBtn" aria-label="Day / night">
+        <span class="sun">☀</span><span class="moon">☾</span>
+      </button>
+    </div>
+  </header>
 
-    <button id="language-btn">RU</button>
-</header>
+  <!-- 1. ГЛАВНЫЙ ЭКРАН: слева лист А4 с резюме (листается внутри), справа текст -->
+  <section class="intro" id="home">
 
-<main>
-
-    <!-- HOME -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="welcome" data-en="HELLO, I'M" data-ru="ПРИВЕТ, Я">HELLO, I'M</p>
-
-            <h1>Saltanat<br>Karamoldoeva</h1>
-
-            <h2 data-en="Aspiring Frontend Developer"
-                data-ru="Начинающий Frontend-разработчик">
-                Aspiring Frontend Developer
-            </h2>
-
-            <p data-en="I create clean, modern and responsive websites. I'm learning every day and turning ideas into real projects."
-               data-ru="Я создаю современные и адаптивные сайты. Каждый день учусь новому и превращаю идеи в реальные проекты.">
-                I create clean, modern and responsive websites.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#projects" class="btn"
-                   data-en="View My Projects" data-ru="Мои проекты">
-                    View My Projects
-                </a>
-                <a href="#contact" class="btn btn-light"
-                   data-en="Contact Me" data-ru="Связаться со мной">
-                    Contact Me
-                </a>
+    <!-- ЛИСТ А4 -->
+    <div class="paper-wrap" id="heroCard">
+      <div class="paper-stack">
+        <article class="paper" tabindex="0" aria-label="CV">
+          <header class="cv-head">
+            <img src="images/my-photo.jpg" alt="Saltanat Karamoldoeva">
+            <div>
+              <h2 data-i18n="name">Saltanat Karamoldoeva</h2>
+              <p class="cv-role" data-i18n="role">Aspiring Frontend Developer</p>
+              <p class="cv-contacts"><span data-i18n="chipCity">Bishkek, Kyrgyzstan</span><br>karamoldoevas@gmail.com<br>github.com/karamoldoevas-dev</p>
             </div>
-        </div>
+          </header>
 
-        <div class="hero-image">
-            <img src="images/my-photo.jpg" alt="Saltanat's photo">
+          <h3 data-i18n="cvProfile">Profile</h3>
+          <p data-i18n="cvProfileText">…</p>
+
+          <h3 data-i18n="eduTitle">Education</h3>
+          <div class="cv-item">
+            <div class="cv-row"><b data-i18n="uniName">…</b><span data-i18n="uniWhen">2026 — now</span></div>
+            <p data-i18n="uniText">…</p>
+          </div>
+          <div class="cv-item">
+            <div class="cv-row"><b data-i18n="courseName">…</b><span>2026</span></div>
+            <p data-i18n="courseText">…</p>
+          </div>
+          <div class="cv-item">
+            <div class="cv-row"><b data-i18n="schoolName">…</b><span>2026</span></div>
+            <p data-i18n="schoolText">…</p>
+          </div>
+
+          <h3 data-i18n="skillsTitle">Skills</h3>
+          <p>HTML5 · CSS3 · JavaScript · React · Responsive Design · Flexbox · CSS Grid · Git · GitHub · VS Code</p>
+
+          <h3 data-i18n="langsTitle">Languages</h3>
+          <p><span data-i18n="langKg">Kyrgyz</span> — C1 · <span data-i18n="langRu">Russian</span> — C1 · <span data-i18n="langEn">English</span> — B2</p>
+
+          <h3 data-i18n="projectsTitle">Projects</h3>
+          <div class="cv-item">
+            <div class="cv-row"><b>SAKU BEAUTY</b><span>2026</span></div>
+            <p data-i18n="sakuText">…</p>
+            <p class="cv-link">saku-beauty-final.vercel.app</p>
+          </div>
+
+          <h3 data-i18n="hobbiesTitle">Hobbies</h3>
+          <p><span data-i18n="hobby1">Reading books</span> · <span data-i18n="hobby2">Volleyball</span> · <span data-i18n="hobby3">Design and style</span></p>
+        </article>
+      </div>
+      <p class="paper-hint" data-i18n="cvHint">Scroll inside the page ↕</p>
+    </div>
+
+    <!-- ТЕКСТ СПРАВА -->
+    <div class="intro-text">
+      <ul class="badges">
+        <li data-i18n="badge1">🎓 Student</li>
+        <li data-i18n="badge2">💻 Frontend</li>
+        <li data-i18n="badge3">📍 Bishkek</li>
+      </ul>
+      <p class="hello" data-i18n="hello">Hello, I'm</p>
+      <h1><span class="accent" data-i18n="firstName">Saltanat</span><br><span data-i18n="lastName">Karamoldoeva</span></h1>
+      <p class="role" data-i18n="role">Aspiring Frontend Developer</p>
+      <ul class="checks">
+        <li data-i18n="check1">…</li>
+        <li data-i18n="check2">…</li>
+        <li data-i18n="check3">…</li>
+      </ul>
+      <div class="stats">
+        <div><b>3</b><span data-i18n="statLangs">languages</span></div>
+        <div><b>3</b><span data-i18n="statCourse">months of course</span></div>
+        <div><b>1</b><span data-i18n="statProject">live project</span></div>
+        <div><b>18</b><span data-i18n="statAge">years old</span></div>
+      </div>
+      <div class="intro-btns">
+        <a class="btn" href="#projects" data-i18n="btnProjects">My projects</a>
+        <button class="btn ghost" id="printBtn" data-i18n="cvDownload">Download CV</button>
+      </div>
+    </div>
+
+    <a class="scroll-hint" href="#about"><span data-i18n="scroll">Scroll</span> ↓</a>
+  </section>
+
+  <!-- ЛИСТ: вся остальная информация -->
+  <main class="sheet">
+
+    <!-- 2. ОБО МНЕ -->
+    <section class="block reveal" id="about">
+      <p class="label">01</p>
+      <h2 data-i18n="aboutTitle">About me</h2>
+      <p class="text" data-i18n="aboutText">…</p>
+      <div class="now">
+        <div>
+          <h3 data-i18n="nowTitle">Currently learning</h3>
+          <p>JavaScript · React</p>
         </div>
+        <div>
+          <h3 data-i18n="goalTitle">My goal</h3>
+          <p data-i18n="goalText">…</p>
+        </div>
+      </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-        <p class="section-label" data-en="01 / ABOUT ME" data-ru="01 / ОБО МНЕ">01 / ABOUT ME</p>
-
-        <h2 data-en="About Me" data-ru="Обо мне">About Me</h2>
-
-        <p class="section-text"
-           data-en="Hello! I'm Saltanat Karamoldoeva, an aspiring Frontend Developer and a university student at Al-Farabi University. I'm passionate about web development and enjoy creating clean, modern, and responsive websites. Currently, I'm developing my skills in HTML, CSS, and JavaScript through practical projects. I'm looking for an opportunity to join a team as a Frontend Developer Intern, gain real-world experience, and grow as a professional."
-           data-ru="Привет! Я Салтанат Карамолдоева, начинающий Frontend-разработчик и студентка университета Аль-Фараби. Я увлекаюсь веб-разработкой и люблю создавать красивые, современные и адаптивные сайты. Сейчас я развиваю свои навыки HTML, CSS и JavaScript с помощью практических проектов. Я ищу возможность пройти стажировку Frontend Developer Intern, получить реальный опыт работы в команде и профессионально развиваться.">
-            Hello! I'm Saltanat Karamoldoeva, an aspiring Frontend Developer.
-        </p>
-
-        <div class="about-details">
-            <div class="detail-card">
-                <span>📍</span>
-                <h3 data-en="Location" data-ru="Местоположение">Location</h3>
-                <p data-en="Bishkek, Kyrgyzstan" data-ru="Бишкек, Кыргызстан">Bishkek, Kyrgyzstan</p>
-            </div>
-
-            <div class="detail-card">
-                <span>🎓</span>
-                <h3 data-en="Education" data-ru="Образование">Education</h3>
-                <p data-en="University Student" data-ru="Студентка университета">University Student</p>
-            </div>
-
-            <div class="detail-card">
-                <span>💻</span>
-                <h3 data-en="Specialization" data-ru="Специализация">Specialization</h3>
-                <p data-en="Frontend Development" data-ru="Фронтенд-разработка">Frontend Development</p>
-            </div>
-
-            <div class="detail-card">
-                <span>🌱</span>
-                <h3 data-en="Currently Learning" data-ru="Сейчас изучаю">Currently Learning</h3>
-                <p>HTML, CSS, JavaScript</p>
-            </div>
-        </div>
-
-        <div class="about-goal">
-            <h3 data-en="My Goal" data-ru="Моя цель">My Goal</h3>
-            <p data-en="My goal is to become a professional Frontend Developer, gain practical experience, and create useful digital experiences."
-               data-ru="Моя цель — стать профессиональным Frontend-разработчиком, получить практический опыт и создавать полезные цифровые продукты.">
-                My goal is to become a professional Frontend Developer.
-            </p>
-        </div>
+    <!-- 3. ОБРАЗОВАНИЕ: линия времени -->
+    <section class="block reveal" id="education">
+      <p class="label">02</p>
+      <h2 data-i18n="eduTitle">Education</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when" data-i18n="uniWhen">2026 — now</span>
+          <h3 data-i18n="uniName">…</h3>
+          <p data-i18n="uniText">…</p>
+        </li>
+        <li>
+          <span class="when">2026</span>
+          <h3 data-i18n="courseName">…</h3>
+          <p data-i18n="courseText">…</p>
+        </li>
+        <li>
+          <span class="when">2026</span>
+          <h3 data-i18n="schoolName">…</h3>
+          <p data-i18n="schoolText">…</p>
+        </li>
+      </ol>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-        <p class="section-label" data-en="02 / EDUCATION" data-ru="02 / ОБРАЗОВАНИЕ">02 / EDUCATION</p>
+    <!-- 4. НАВЫКИ И ЯЗЫКИ -->
+    <section class="block reveal" id="skills">
+      <p class="label">03</p>
+      <h2 data-i18n="skillsTitle">Skills</h2>
+      <ul class="tags">
+        <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li>
+        <li>Responsive Design</li><li>Flexbox</li><li>CSS Grid</li>
+        <li>Git</li><li>GitHub</li><li>VS Code</li>
+      </ul>
 
-        <h2 data-en="My Education" data-ru="Моё образование">My Education</h2>
-
-        <div class="education-card">
-            <span>🎓</span>
-            <h3>Al-Farabi University</h3>
-            <p data-en="Faculty: Infil" data-ru="Факультет: Инфил">Faculty: Infil</p>
-            <p data-en="University Student" data-ru="Студентка университета">University Student</p>
-        </div>
-
-        <div class="education-card">
-            <span>💻</span>
-            <h3 data-en="Frontend Development Course" data-ru="Курс Frontend-разработки">
-                Frontend Development Course
-            </h3>
-            <p data-en="Learning HTML, CSS and JavaScript through practical projects."
-               data-ru="Изучение HTML, CSS и JavaScript на практических проектах.">
-                Learning HTML, CSS and JavaScript through practical projects.
-            </p>
-        </div>
+      <h3 class="sub" data-i18n="langsTitle">Languages</h3>
+      <div class="levels">
+        <div class="level"><span data-i18n="langKg">Kyrgyz</span><div class="track"><i style="--w:90%"></i></div><b>C1</b></div>
+        <div class="level"><span data-i18n="langRu">Russian</span><div class="track"><i style="--w:90%"></i></div><b>C1</b></div>
+        <div class="level"><span data-i18n="langEn">English</span><div class="track"><i style="--w:72%"></i></div><b>B2</b></div>
+      </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-        <p class="section-label" data-en="03 / MY SKILLS" data-ru="03 / МОИ НАВЫКИ">03 / MY SKILLS</p>
-
-        <h2 data-en="Skills & Technologies" data-ru="Навыки и технологии">
-            Skills & Technologies
-        </h2>
-
-        <p class="section-text"
-           data-en="Technologies I'm currently learning and using in my projects."
-           data-ru="Технологии, которые я сейчас изучаю и использую в своих проектах.">
-            Technologies I'm currently learning and using in my projects.
-        </p>
-
-        <div class="skills-grid">
-            <div class="skill-card">HTML5</div>
-            <div class="skill-card">CSS3</div>
-            <div class="skill-card">JavaScript</div>
-            <div class="skill-card">Flexbox</div>
-            <div class="skill-card">CSS Grid</div>
-            <div class="skill-card">Responsive Design</div>
-            <div class="skill-card">Git</div>
-            <div class="skill-card">GitHub</div>
-            <div class="skill-card">VS Code</div>
+    <!-- 5. ПРОЕКТЫ -->
+    <section class="block reveal" id="projects">
+      <p class="label">04</p>
+      <h2 data-i18n="projectsTitle">Projects</h2>
+      <article class="project">
+        <img src="images/saku-beauty.webp" alt="SAKU BEAUTY">
+        <div class="project-info">
+          <h3>SAKU BEAUTY</h3>
+          <p data-i18n="sakuText">…</p>
+          <ul class="tags small"><li>React</li><li>Vite</li><li>CSS</li><li>Framer Motion</li></ul>
+          <div class="project-links">
+            <a class="btn" href="https://saku-beauty-final.vercel.app" target="_blank" rel="noopener" data-i18n="liveSite">Live site</a>
+            <a class="btn ghost" href="https://github.com/karamoldoevas-dev/saku-beauty-final" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
+      </article>
+      <div class="soon">
+        <span>✿</span>
+        <p data-i18n="soonText">More projects are coming soon — I'm building something new right now.</p>
+      </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-        <p class="section-label" data-en="04 / MY WORK" data-ru="04 / МОИ РАБОТЫ">04 / MY WORK</p>
+    <!-- 6. ХОББИ — ЭТОТ БЛОК ДЕЛАЕТ САЛТАНАТ САМА (инструкция в файле ЗАДАНИЕ-ХОББИ.md) -->
+    <section class="block reveal" id="hobbies">
+      <p class="label">05</p>
+      <h2 data-i18n="hobbiesTitle">Hobbies</h2>
+      <div class="hobbies">
+        <!-- ✍ Вставьте сюда 3 карточки хобби. Пример одной карточки:
 
-        <h2 data-en="My Projects" data-ru="Мои проекты">My Projects</h2>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-icon">🛍️</div>
-                <h3>Beauty Store</h3>
-                <p data-en="A beauty store website created with HTML, CSS and JavaScript. It includes product cards and shopping cart functionality."
-                   data-ru="Сайт магазина косметики, созданный с помощью HTML, CSS и JavaScript. Включает карточки товаров и функциональность корзины.">
-                    A beauty store website created with HTML, CSS and JavaScript.
-                </p>
-                <div class="project-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-                <a href="https://github.com/karamoldoevas-dev/saku-beauty" target="_blank"
-                   data-en="View Project →" data-ru="Посмотреть проект →">
-                    View Project →
-                </a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">🌷</div>
-                <h3 data-en="More Projects Coming Soon" data-ru="Скоро появятся новые проекты">
-                    More Projects Coming Soon
-                </h3>
-                <p data-en="I'm continuously learning and building new projects to improve my frontend development skills."
-                   data-ru="Я продолжаю учиться и создавать новые проекты, чтобы улучшать свои навыки фронтенд-разработки.">
-                    I'm continuously learning and building new projects.
-                </p>
-            </div>
+        <div class="hobby">
+          <span class="hobby-icon">📚</span>
+          <h3 data-i18n="hobby1">Reading books</h3>
         </div>
+
+        --> 
+        <div class="hobby">
+          <span class="hobby-icon">📚</span>
+          <h3 data-i18n="hobby1">Reading books</h3>
+        </div>
+       <div class="hobby">
+         <span class="hobby-icon">🏐</span>
+         <h3 data-i18n="hobby2">Volleyball</h3>
+       </div>
+       <div class="hobby">
+         <span class="hobby-icon">🎨</span>
+         <h3 data-i18n="hobby3">Design and style</h3>
+         </div>
+      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-        <p class="section-label" data-en="05 / GET IN TOUCH" data-ru="05 / СВЯЗАТЬСЯ СО МНОЙ">
-            05 / GET IN TOUCH
-        </p>
-
-        <h2 data-en="Let's Connect!" data-ru="Давайте общаться!">Let's Connect!</h2>
-
-        <p class="section-text"
-           data-en="I'm open to internship opportunities, collaboration and new connections."
-           data-ru="Я открыта к предложениям о стажировке, сотрудничеству и новым знакомствам.">
-            I'm open to internship opportunities, collaboration and new connections.
-        </p>
-
-        <div class="contact-links">
-            <a href="https://github.com/karamoldoevas-dev" target="_blank">GitHub</a>
-            <a href="https://t.me/voleboL7882/" target="_blank">Telegram</a>
-            <a href="mailto:karamoldoevas@gmail.com">Email</a>
-        </div>
+    <!-- 7. КОНТАКТЫ -->
+    <section class="block reveal contact" id="contact">
+      <p class="label">06</p>
+      <h2 data-i18n="contactTitle">Let's connect</h2>
+      <p class="text" data-i18n="contactText">…</p>
+      <div class="mail">
+        <a href="mailto:karamoldoevas@gmail.com">karamoldoevas@gmail.com</a>
+        <button class="btn ghost" id="copyBtn" data-i18n="copy">Copy</button>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/karamoldoevas-dev" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://instagram.com/moonella_uis_09" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </section>
 
-</main>
+    <footer class="foot">
+      © <span id="year">2026</span> <span data-i18n="name">Saltanat Karamoldoeva</span>
+    </footer>
+  </main>
 
-<footer>
-    <p>© <span id="year"></span> Saltanat Karamoldoeva.
-        <span data-en="Made with care." data-ru="Создано с заботой.">Made with care.</span>
-    </p>
-</footer>
+  <div class="toast" id="toast" role="status"></div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
