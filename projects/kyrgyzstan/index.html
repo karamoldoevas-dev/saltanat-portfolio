@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кыргызстан — горы, регионы и традиции</title>
+  <meta name="description" content="Учебный проект Салтанат Карамолдоевой: 7 регионов Кыргызстана, юрта, Манас, традиции и интересные факты.">
+  <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+  <link rel="apple-touch-icon" href="../../images/logo-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top">
+    <a class="back" href="../../#work">← Портфолио</a>
+    <nav>
+      <a href="#regions">Регионы</a>
+      <a href="#culture">Культура</a>
+      <a href="#facts">Факты</a>
+    </nav>
+  </header>
+
+  <!-- 1. ГЛАВНЫЙ ЭКРАН: горы, солнце и юрта нарисованы на SVG -->
+  <section class="hero">
+    <svg class="scene" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle class="sun" cx="900" cy="150" r="70" />
+      <polygon class="far" points="0,380 160,190 280,300 420,130 560,290 700,170 860,320 1000,200 1200,340 1200,520 0,520" />
+      <polygon class="snow" points="420,130 392,165 420,158 448,172" />
+      <polygon class="snow" points="700,170 676,200 702,193 724,204" />
+      <polygon class="near" points="0,430 220,300 380,400 560,320 760,420 960,330 1200,430 1200,520 0,520" />
+      <rect class="ground" x="0" y="460" width="1200" height="60" />
+      <!-- юрта (боз үй) -->
+      <g class="yurt" transform="translate(250 380)">
+        <path d="M0 80 L0 40 Q60 -10 120 40 L120 80 Z" />
+        <rect class="door" x="48" y="48" width="24" height="32" rx="3" />
+        <path class="ornament" d="M8 58 H112" />
+      </g>
+    </svg>
+    <div class="hero-text">
+      <p class="kicker">Учебный проект · HTML, CSS, JavaScript</p>
+      <h1>Кыргызстан</h1>
+      <p>Страна гор, озёр и кочевых традиций. Здесь — 7 регионов, юрта, эпос «Манас» и то, чем мы гордимся.</p>
+      <a class="btn" href="#regions">Смотреть регионы ↓</a>
+    </div>
+  </section>
+
+  <main>
+    <!-- 2. РЕГИОНЫ: нажимаешь на кнопку — справа меняется описание -->
+    <section id="regions" class="block">
+      <h2>7 регионов</h2>
+      <p class="lead">Нажмите на область, чтобы узнать, чем она известна.</p>
+      <div class="regions">
+        <div class="region-list" id="regionList" role="tablist"></div>
+        <article class="region-card" id="regionCard" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <!-- 3. КУЛЬТУРА: карточки -->
+    <section id="culture" class="block">
+      <h2>Культура и традиции</h2>
+      <div class="cards" id="cultureCards"></div>
+    </section>
+
+    <!-- 4. ВЕРА И ОБЫЧАИ -->
+    <section class="block faith">
+      <h2>Вера и обычаи</h2>
+      <p>Большинство жителей Кыргызстана — мусульмане, в стране живут и православные христиане, и люди других верований. В народных обычаях до сих пор живут древние традиции кочевников: уважение к природе, горам и воде, к старшим и к гостю. Гостя здесь всегда сажают на почётное место — <b>төр</b> — и угощают чаем, боорсоками и кымызом.</p>
+    </section>
+
+    <!-- 5. ИНТЕРЕСНЫЕ ФАКТЫ: числа «набегают» при прокрутке -->
+    <section id="facts" class="block">
+      <h2>Интересные факты</h2>
+      <div class="facts">
+        <div><b data-count="90">0</b><span>% территории — горы</span></div>
+        <div><b data-count="7439">0</b><span>м — пик Победы, самая высокая точка</span></div>
+        <div><b data-count="1607">0</b><span>м над морем — озеро Иссык-Куль, оно не замерзает зимой</span></div>
+        <div><b data-count="40">0</b><span>лучей у солнца на флаге — по легенде, 40 племён</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Сделала <a href="../../">Салтанат Карамолдоева</a> · учебный проект
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

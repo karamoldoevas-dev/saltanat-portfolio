@@ -1,272 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#fbf3f4">
-  <title>Saltanat Karamoldoeva — Frontend Developer</title>
-  <meta name="description" content="Saltanat Karamoldoeva — aspiring frontend developer from Bishkek. First-year English Philology student. HTML, CSS, JavaScript, React.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Салтанат Карамолдоева — Frontend-разработчик</title>
+  <meta name="description" content="Saltanat Karamoldoeva — frontend developer. HTML, CSS, JavaScript, React. Projects: SAKU BEAUTY, Kyrgyzstan, TODO.">
   <meta property="og:title" content="Saltanat Karamoldoeva — Frontend Developer">
-  <meta property="og:description" content="Aspiring frontend developer from Bishkek. Projects, education and contacts.">
+  <meta property="og:description" content="Design and code. Projects, CV and contacts.">
   <meta property="og:image" content="https://saltanat-portfolio.vercel.app/images/my-photo.jpg">
+  <!-- значок-логотип на вкладке браузера: розово-сиреневая «капля» с буквами SK -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="180x180" href="images/logo-180.png">
+  <link rel="apple-touch-icon" href="images/logo-180.png">
 
-  <!-- Тема день/ночь ставится сразу, до загрузки страницы, чтобы не было белой вспышки -->
+  <!-- тема день/ночь ставится сразу, чтобы не было белой вспышки -->
   <script>
-    try {
-      var dark = matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-    } catch (e) {}
+    try { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' } catch (e) {}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ШАПКА: маленькое фото появляется, когда большое уезжает -->
-  <header class="bar">
-    <a href="#home" class="logo">
-      <img class="logo-photo" id="logoPhoto" src="images/my-photo.jpg" alt="">
-      <span>Saltanat<b>.</b></span>
+  <!-- ===== ШАПКА ===== -->
+  <header class="nav">
+    <!-- логотип: «живая капля» SK + надпись -->
+    <a class="brand" href="#home" aria-label="Saltanat — на главную">
+      <span class="mark">SK</span>
+      <span class="word">SALTANAT<b>.DEV</b></span>
     </a>
-    <nav class="links">
-      <a href="#about" data-i18n="navAbout">About</a>
-      <a href="#education" data-i18n="navEdu">Education</a>
-      <a href="#skills" data-i18n="navSkills">Skills</a>
-      <a href="#projects" data-i18n="navProjects">Projects</a>
-      <a href="#contact" data-i18n="navContact">Contact</a>
+    <nav class="menu">
+      <a href="#about" data-i18n="navAbout">Обо мне</a>
+      <a href="#work" data-i18n="navWork">Работы</a>
+      <a href="#edu" data-i18n="navEdu">Образование</a>
+      <a href="#contact" data-i18n="navContact">Контакты</a>
     </nav>
     <div class="tools">
       <div class="langs" role="group" aria-label="Language">
-        <button data-lang="ru">RU</button>
-        <button data-lang="kg">KG</button>
-        <button data-lang="en">EN</button>
+        <button data-lang="ru">RU</button><button data-lang="kg">KG</button><button data-lang="en">EN</button>
       </div>
-      <button class="theme-btn" id="themeBtn" aria-label="Day / night">
-        <span class="sun">☀</span><span class="moon">☾</span>
+      <!-- переключатель как в iPhone: включён = день, выключен = ночь -->
+      <button class="switch" id="theme" role="switch" aria-checked="true" aria-label="День / ночь">
+        <span class="knob"><span class="sun">☀</span><span class="moon">☾</span></span>
       </button>
     </div>
   </header>
 
-  <!-- 1. ГЛАВНЫЙ ЭКРАН: слева лист А4 с резюме (листается внутри), справа текст -->
-  <section class="intro" id="home">
+  <div class="wrap">
+    <!-- ===== 1. ГЛАВНЫЙ ЭКРАН: текст слева, лист А4 справа ===== -->
+    <section class="hero" id="home">
+      <!-- мягкие цветные пятна на фоне, медленно плавают -->
+      <div class="glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-    <!-- ЛИСТ А4 -->
-    <div class="paper-wrap" id="heroCard">
-      <div class="paper-stack">
-        <article class="paper" tabindex="0" aria-label="CV">
-          <header class="cv-head">
-            <img src="images/my-photo.jpg" alt="Saltanat Karamoldoeva">
-            <div>
-              <h2 data-i18n="name">Saltanat Karamoldoeva</h2>
-              <p class="cv-role" data-i18n="role">Aspiring Frontend Developer</p>
-              <p class="cv-contacts"><span data-i18n="chipCity">Bishkek, Kyrgyzstan</span><br>karamoldoevas@gmail.com<br>github.com/karamoldoevas-dev</p>
+      <div class="from-left">
+        <p class="eyebrow" data-i18n="role">Frontend-разработчик</p>
+        <h1><span data-i18n="firstName">Салтанат</span>.<br><span class="grey" data-i18n="heroDesign">Дизайн</span><br><span data-i18n="heroCode">и код.</span></h1>
+        <p class="lead" data-i18n="heroText">Создаю адаптивные сайты на HTML, CSS, JavaScript и React.</p>
+        <div class="links">
+          <a class="btn" href="#work" data-i18n="btnWork">Смотреть работы</a>
+          <a class="btn line" id="cvView" href="cv/Saltanat-Karamoldoeva-CV-RU.pdf" target="_blank" rel="noopener" data-i18n="cvView">Посмотреть резюме</a>
+          <a class="btn soft" id="cvLink" href="cv/Saltanat-Karamoldoeva-CV-RU.pdf" download data-i18n="cvDownload">Скачать PDF ↓</a>
+        </div>
+      </div>
+
+      <!-- лист А4 = резюме (2 листа, перелистываются сами). Он же печатается в PDF -->
+      <div class="cv-3d">
+        <div class="stack" id="stack">
+          <article class="paper page on" tabindex="0" aria-label="CV 1">
+            <header class="cv-head">
+              <img src="images/my-photo.jpg" alt="Saltanat Karamoldoeva">
+              <div>
+                <h3 data-i18n="name">Салтанат Карамолдоева</h3>
+                <p><span data-i18n="role">Frontend-разработчик</span><br>+996 708 072 558<br>karamoldoevas@gmail.com<br>github.com/karamoldoevas-dev</p>
+              </div>
+            </header>
+            <h4 data-i18n="cvProfile">Профиль</h4>
+            <p data-i18n="cvProfileText">…</p>
+            <h4 data-i18n="workTitle">Проекты</h4>
+            <div class="row"><b>SAKU BEAUTY</b><span>2026</span></div><p data-i18n="p1Short">…</p>
+            <div class="row"><b data-i18n="p2Title">Кыргызстан</b><span>2026</span></div><p data-i18n="p2Short">…</p>
+            <div class="row"><b data-i18n="p3Title">TODO-список</b><span>2026</span></div><p data-i18n="p3Short">…</p>
+            <h4 data-i18n="skillsTitle">Навыки</h4>
+            <p>HTML5 · CSS3 · Flexbox · Grid · JavaScript · React · Redux · Git · GitHub · Vercel</p>
+            <h4 data-i18n="eduTitle">Образование</h4>
+            <div class="row"><b data-i18n="courseName">Окурмэн — Frontend-разработка</b><span data-i18n="finished">окончила</span></div>
+            <div class="row"><b data-i18n="uniName">Университет — английская филология</b><span data-i18n="year1">1 курс</span></div>
+            <div class="row"><b data-i18n="schoolName">Школа №40, Бишкек</b><span data-i18n="grades">1–11 классы</span></div>
+            <h4 data-i18n="achTitle">Достижения</h4>
+            <p data-i18n="achShort">…</p>
+            <h4 data-i18n="langsTitle">Языки</h4>
+            <p data-i18n="langsLine">…</p>
+          </article>
+
+          <article class="paper page" tabindex="0" aria-label="CV 2">
+            <header class="cv-head no-photo">
+              <div><h3 data-i18n="name">Салтанат Карамолдоева</h3><p><span data-i18n="role">Frontend-разработчик</span><br><span data-i18n="page2Sub">Лист 2 — письмо и проекты</span></p></div>
+            </header>
+            <h4 data-i18n="whyTitle">Почему я</h4>
+            <div class="letter">
+              <p data-i18n="letter1">…</p>
+              <p data-i18n="letter2">…</p>
+              <p data-i18n="letter3">…</p>
+              <p class="sign" data-i18n="sign">— Салтанат</p>
             </div>
-          </header>
+            <h4 data-i18n="workTitle">Проекты</h4>
+            <div class="thumbs">
+              <div><span class="pic"><img src="images/saku-beauty.jpg" alt=""></span><b>SAKU BEAUTY</b><span data-i18n="p1Tiny">Интернет-магазин на React</span></div>
+              <div><span class="pic"><img src="images/kyrgyzstan.png" alt=""></span><b data-i18n="p2Title">Кыргызстан</b><span data-i18n="p2Tiny">Регионы и традиции</span></div>
+              <div><span class="pic"><img src="images/todo.png" alt=""></span><b data-i18n="p3Title">TODO-список</b><span data-i18n="p3Tiny">Дела на JavaScript</span></div>
+            </div>
+          </article>
+        </div>
+        <!-- счётчик листов -->
+        <div class="pager">
+          <button id="prevPage" aria-label="‹">‹</button>
+          <span id="pageNum">1 / 2</span>
+          <span class="dots" id="dots"><i class="on"></i><i></i></span>
+          <button id="nextPage" aria-label="›">›</button>
+        </div>
+      </div>
+    </section>
+  </div>
 
-          <h3 data-i18n="cvProfile">Profile</h3>
-          <p data-i18n="cvProfileText">…</p>
+  <!-- ===== БЕГУЩАЯ СТРОКА НАВЫКОВ ===== -->
+  <div class="marquee" aria-hidden="true"><div class="track"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Redux</span><span>Flexbox</span><span>Grid</span><span>Git</span><span>Vercel</span></div></div>
 
-          <h3 data-i18n="eduTitle">Education</h3>
-          <div class="cv-item">
-            <div class="cv-row"><b data-i18n="uniName">…</b><span data-i18n="uniWhen">2026 — now</span></div>
-            <p data-i18n="uniText">…</p>
+  <div class="wrap">
+    <!-- ===== 2. ОБО МНЕ ===== -->
+    <section class="big" id="about">
+      <h2 class="from-left" data-i18n="aboutTitle">Обо мне.</h2>
+      <div class="about-grid">
+        <div class="about-text from-left">
+          <q data-i18n="role">Frontend-разработчик</q>
+          <p data-i18n="about1">…</p>
+          <p data-i18n="about2">…</p>
+          <p data-i18n="about3">…</p>
+          <p data-i18n="about4">…</p>
+          <ul class="does">
+            <li data-i18n="does1">Вёрстка по макету</li>
+            <li data-i18n="does2">Адаптив: телефон и ПК</li>
+            <li data-i18n="does3">Интерактив на JavaScript</li>
+            <li data-i18n="does4">Интерфейсы на React</li>
+          </ul>
+        </div>
+        <div class="about-side from-right">
+          <div tabindex="0"><small data-i18n="goalTitle">Моя цель</small><p data-i18n="goalText">…</p></div>
+          <div tabindex="0"><small data-i18n="teamTitle">В команде</small><p data-i18n="teamText">…</p></div>
+          <div tabindex="0"><small data-i18n="langsTitle">Языки</small><p data-i18n="langsLine">…</p></div>
+          <div tabindex="0"><small data-i18n="hobbiesTitle">Хобби</small><p data-i18n="hobbiesLine">…</p></div>
+        </div>
+      </div>
+      <div class="facts">
+        <div><b data-to="3">0</b><span data-i18n="statProjects">проекта</span></div>
+        <div><b data-to="20" data-plus="+">0</b><span data-i18n="statRepos">репозиториев на GitHub</span></div>
+        <div><b data-to="3">0</b><span data-i18n="statLangs">языка знаю</span></div>
+        <div><b data-to="2">0</b><span data-i18n="statVolley">место, волейбол</span></div>
+      </div>
+    </section>
+
+    <!-- ===== 3. РАБОТЫ ===== -->
+    <section class="big" id="work">
+      <h2 class="from-left" data-i18n="workTitleDot">Работы.</h2>
+      <div class="cards">
+        <a class="card" data-tilt href="https://saku-beauty-final.vercel.app" target="_blank" rel="noopener">
+          <img src="images/saku-beauty.jpg" alt="SAKU BEAUTY">
+          <div><small data-i18n="kindMain">Главный проект</small><h3>SAKU BEAUTY</h3><p data-i18n="p1Text">…</p><span class="go" data-i18n="openSite">Открыть сайт ↗</span></div>
+        </a>
+        <a class="card" data-tilt href="projects/kyrgyzstan/">
+          <img src="images/kyrgyzstan.png" alt="">
+          <div><small data-i18n="kindStudy">Учебный проект</small><h3 data-i18n="p2Title">Кыргызстан</h3><p data-i18n="p2Text">…</p><span class="go" data-i18n="openSite">Открыть сайт ↗</span></div>
+        </a>
+        <a class="card" data-tilt href="projects/todo/">
+          <img src="images/todo.png" alt="">
+          <div><small data-i18n="kindStudy">Учебный проект</small><h3 data-i18n="p3Title">TODO-список</h3><p data-i18n="p3Text">…</p><span class="go" data-i18n="openSite">Открыть сайт ↗</span></div>
+        </a>
+      </div>
+      <p class="code-link"><a href="https://github.com/karamoldoevas-dev" target="_blank" rel="noopener" data-i18n="allCode">Весь код — на моём GitHub ↗</a></p>
+    </section>
+
+    <!-- ===== 4. ОБРАЗОВАНИЕ ===== -->
+    <section class="big" id="edu">
+      <h2 class="from-left" data-i18n="eduTitleDot">Образование.</h2>
+      <div class="edu">
+        <article class="edu-card from-left">
+          <div class="edu-top">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-5h4v5"/><path d="M9 11h.01M15 11h.01"/></svg></span>
+            <small data-i18n="grades">1–11 классы</small>
           </div>
-          <div class="cv-item">
-            <div class="cv-row"><b data-i18n="courseName">…</b><span>2026</span></div>
-            <p data-i18n="courseText">…</p>
+          <h3 data-i18n="schoolTitle">Школа №40</h3>
+          <p data-i18n="schoolText">…</p>
+          <span class="place"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="city">Бишкек</span></span>
+        </article>
+        <article class="edu-card from-left">
+          <div class="edu-top">
+            <span class="ic"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <small data-i18n="courseWhen">Курс · окончила</small>
           </div>
-          <div class="cv-item">
-            <div class="cv-row"><b data-i18n="schoolName">…</b><span>2026</span></div>
-            <p data-i18n="schoolText">…</p>
+          <h3 data-i18n="courseName">Окурмэн — Frontend-разработка</h3>
+          <p data-i18n="courseText">…</p>
+          <span class="place"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="city">Бишкек</span></span>
+        </article>
+        <article class="edu-card from-right">
+          <div class="edu-top">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+            <small data-i18n="uniWhen">Сейчас · 1 курс</small>
           </div>
-
-          <h3 data-i18n="skillsTitle">Skills</h3>
-          <p>HTML5 · CSS3 · JavaScript · React · Responsive Design · Flexbox · CSS Grid · Git · GitHub · VS Code</p>
-
-          <h3 data-i18n="langsTitle">Languages</h3>
-          <p><span data-i18n="langKg">Kyrgyz</span> — C1 · <span data-i18n="langRu">Russian</span> — C1 · <span data-i18n="langEn">English</span> — B2</p>
-
-          <h3 data-i18n="projectsTitle">Projects</h3>
-          <div class="cv-item">
-            <div class="cv-row"><b>SAKU BEAUTY</b><span>2026</span></div>
-            <p data-i18n="sakuText">…</p>
-            <p class="cv-link">saku-beauty-final.vercel.app</p>
-          </div>
-
-          <h3 data-i18n="hobbiesTitle">Hobbies</h3>
-          <p><span data-i18n="hobby1">Reading books</span> · <span data-i18n="hobby2">Volleyball</span> · <span data-i18n="hobby3">Design and style</span></p>
+          <h3 data-i18n="uniName">Университет — английская филология</h3>
+          <p data-i18n="uniText">…</p>
+          <span class="place"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="city">Бишкек</span></span>
         </article>
       </div>
-      <p class="paper-hint" data-i18n="cvHint">Scroll inside the page ↕</p>
-    </div>
-
-    <!-- ТЕКСТ СПРАВА -->
-    <div class="intro-text">
-      <ul class="badges">
-        <li data-i18n="badge1">🎓 Student</li>
-        <li data-i18n="badge2">💻 Frontend</li>
-        <li data-i18n="badge3">📍 Bishkek</li>
+      <ul class="rows">
+        <li><small data-i18n="sport">Спорт</small><span data-i18n="volleyRow">…</span></li>
       </ul>
-      <p class="hello" data-i18n="hello">Hello, I'm</p>
-      <h1><span class="accent" data-i18n="firstName">Saltanat</span><br><span data-i18n="lastName">Karamoldoeva</span></h1>
-      <p class="role" data-i18n="role">Aspiring Frontend Developer</p>
-      <ul class="checks">
-        <li data-i18n="check1">…</li>
-        <li data-i18n="check2">…</li>
-        <li data-i18n="check3">…</li>
-      </ul>
-      <div class="stats">
-        <div><b>3</b><span data-i18n="statLangs">languages</span></div>
-        <div><b>3</b><span data-i18n="statCourse">months of course</span></div>
-        <div><b>1</b><span data-i18n="statProject">live project</span></div>
-        <div><b>18</b><span data-i18n="statAge">years old</span></div>
-      </div>
-      <div class="intro-btns">
-        <a class="btn" href="#projects" data-i18n="btnProjects">My projects</a>
-        <button class="btn ghost" id="printBtn" data-i18n="cvDownload">Download CV</button>
-      </div>
-    </div>
-
-    <a class="scroll-hint" href="#about"><span data-i18n="scroll">Scroll</span> ↓</a>
-  </section>
-
-  <!-- ЛИСТ: вся остальная информация -->
-  <main class="sheet">
-
-    <!-- 2. ОБО МНЕ -->
-    <section class="block reveal" id="about">
-      <p class="label">01</p>
-      <h2 data-i18n="aboutTitle">About me</h2>
-      <p class="text" data-i18n="aboutText">…</p>
-      <div class="now">
-        <div>
-          <h3 data-i18n="nowTitle">Currently learning</h3>
-          <p>JavaScript · React</p>
-        </div>
-        <div>
-          <h3 data-i18n="goalTitle">My goal</h3>
-          <p data-i18n="goalText">…</p>
-        </div>
-      </div>
     </section>
 
-    <!-- 3. ОБРАЗОВАНИЕ: линия времени -->
-    <section class="block reveal" id="education">
-      <p class="label">02</p>
-      <h2 data-i18n="eduTitle">Education</h2>
-      <ol class="timeline">
-        <li>
-          <span class="when" data-i18n="uniWhen">2026 — now</span>
-          <h3 data-i18n="uniName">…</h3>
-          <p data-i18n="uniText">…</p>
-        </li>
-        <li>
-          <span class="when">2026</span>
-          <h3 data-i18n="courseName">…</h3>
-          <p data-i18n="courseText">…</p>
-        </li>
-        <li>
-          <span class="when">2026</span>
-          <h3 data-i18n="schoolName">…</h3>
-          <p data-i18n="schoolText">…</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- 4. НАВЫКИ И ЯЗЫКИ -->
-    <section class="block reveal" id="skills">
-      <p class="label">03</p>
-      <h2 data-i18n="skillsTitle">Skills</h2>
-      <ul class="tags">
-        <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li>
-        <li>Responsive Design</li><li>Flexbox</li><li>CSS Grid</li>
-        <li>Git</li><li>GitHub</li><li>VS Code</li>
-      </ul>
-
-      <h3 class="sub" data-i18n="langsTitle">Languages</h3>
-      <div class="levels">
-        <div class="level"><span data-i18n="langKg">Kyrgyz</span><div class="track"><i style="--w:90%"></i></div><b>C1</b></div>
-        <div class="level"><span data-i18n="langRu">Russian</span><div class="track"><i style="--w:90%"></i></div><b>C1</b></div>
-        <div class="level"><span data-i18n="langEn">English</span><div class="track"><i style="--w:72%"></i></div><b>B2</b></div>
+    <!-- ===== 5. КОНТАКТЫ ===== -->
+    <section class="contact" id="contact">
+      <h2 class="from-left" data-i18n="contactTitle">Контакты.</h2>
+      <p data-i18n="contactText">…</p>
+      <div class="links center">
+        <a class="btn" href="https://wa.me/996708072558" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn line" href="mailto:karamoldoevas@gmail.com">karamoldoevas@gmail.com</a>
+        <a class="btn soft" href="https://instagram.com/moonella_uis_09" target="_blank" rel="noopener">Instagram ↗</a>
+        <a class="btn soft" href="https://github.com/karamoldoevas-dev" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </section>
+  </div>
 
-    <!-- 5. ПРОЕКТЫ -->
-    <section class="block reveal" id="projects">
-      <p class="label">04</p>
-      <h2 data-i18n="projectsTitle">Projects</h2>
-      <article class="project">
-        <img src="images/saku-beauty.webp" alt="SAKU BEAUTY">
-        <div class="project-info">
-          <h3>SAKU BEAUTY</h3>
-          <p data-i18n="sakuText">…</p>
-          <ul class="tags small"><li>React</li><li>Vite</li><li>CSS</li><li>Framer Motion</li></ul>
-          <div class="project-links">
-            <a class="btn" href="https://saku-beauty-final.vercel.app" target="_blank" rel="noopener" data-i18n="liveSite">Live site</a>
-            <a class="btn ghost" href="https://github.com/karamoldoevas-dev/saku-beauty-final" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-      </article>
-      <div class="soon">
-        <span>✿</span>
-        <p data-i18n="soonText">More projects are coming soon — I'm building something new right now.</p>
-      </div>
-    </section>
-
-    <!-- 6. ХОББИ — ЭТОТ БЛОК ДЕЛАЕТ САЛТАНАТ САМА (инструкция в файле ЗАДАНИЕ-ХОББИ.md) -->
-    <section class="block reveal" id="hobbies">
-      <p class="label">05</p>
-      <h2 data-i18n="hobbiesTitle">Hobbies</h2>
-      <div class="hobbies">
-        <!-- ✍ Вставьте сюда 3 карточки хобби. Пример одной карточки:
-
-        <div class="hobby">
-          <span class="hobby-icon">📚</span>
-          <h3 data-i18n="hobby1">Reading books</h3>
-        </div>
-
-        --> 
-        <div class="hobby">
-          <span class="hobby-icon">📚</span>
-          <h3 data-i18n="hobby1">Reading books</h3>
-        </div>
-       <div class="hobby">
-         <span class="hobby-icon">🏐</span>
-         <h3 data-i18n="hobby2">Volleyball</h3>
-       </div>
-       <div class="hobby">
-         <span class="hobby-icon">🎨</span>
-         <h3 data-i18n="hobby3">Design and style</h3>
-         </div>
-      </div>
-    </section>
-
-    <!-- 7. КОНТАКТЫ -->
-    <section class="block reveal contact" id="contact">
-      <p class="label">06</p>
-      <h2 data-i18n="contactTitle">Let's connect</h2>
-      <p class="text" data-i18n="contactText">…</p>
-      <div class="mail">
-        <a href="mailto:karamoldoevas@gmail.com">karamoldoevas@gmail.com</a>
-        <button class="btn ghost" id="copyBtn" data-i18n="copy">Copy</button>
-      </div>
-      <div class="socials">
-        <a href="https://github.com/karamoldoevas-dev" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://instagram.com/moonella_uis_09" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </section>
-
-    <footer class="foot">
-      © <span id="year">2026</span> <span data-i18n="name">Saltanat Karamoldoeva</span>
-    </footer>
-  </main>
-
-  <div class="toast" id="toast" role="status"></div>
+  <footer class="foot">© <span id="year">2026</span> <span data-i18n="name">Салтанат Карамолдоева</span></footer>
 
   <script src="script.js"></script>
 </body>

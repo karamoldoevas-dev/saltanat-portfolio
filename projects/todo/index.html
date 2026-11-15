@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO — список дел</title>
+  <meta name="description" content="Учебный проект Салтанат Карамолдоевой: список дел на JavaScript с сохранением в браузере.">
+  <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+  <link rel="apple-touch-icon" href="../../images/logo-180.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="back" href="../../#work">← Портфолио</a>
+
+  <main class="app">
+    <h1>Мои дела</h1>
+    <p class="date" id="today"></p>
+
+    <!-- форма: при отправке добавляем новое дело -->
+    <form id="form" class="add">
+      <input id="input" type="text" placeholder="Что нужно сделать?" maxlength="80" autocomplete="off" aria-label="Новое дело">
+      <button type="submit">Добавить</button>
+    </form>
+    <p class="error" id="error"></p>
+
+    <!-- фильтры -->
+    <div class="filters" id="filters">
+      <button data-filter="all" class="on">Все</button>
+      <button data-filter="active">Активные</button>
+      <button data-filter="done">Готово</button>
+    </div>
+
+    <ul class="list" id="list"></ul>
+
+    <footer class="bottom">
+      <span id="count">0 дел</span>
+      <button id="clear">Удалить выполненные</button>
+    </footer>
+  </main>
+
+  <p class="note">Дела сохраняются в браузере (localStorage) — обновите страницу, они останутся.</p>
+  <script src="app.js"></script>
+</body>
+</html>
