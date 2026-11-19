@@ -68,62 +68,93 @@
         </div>
       </div>
 
-      <!-- лист А4 = резюме (2 листа, перелистываются сами). Он же печатается в PDF -->
+      <!-- лист А4 = резюме (один лист, две колонки). Нажмите — откроется крупно. Он же печатается в PDF -->
       <div class="cv-3d">
         <div class="stack" id="stack">
-          <article class="paper page on" tabindex="0" aria-label="CV 1">
-            <header class="cv-head">
-              <img src="images/my-photo.jpg" alt="Saltanat Karamoldoeva">
-              <div>
-                <h3 data-i18n="name">Салтанат Карамолдоева</h3>
-                <p><span data-i18n="role">Frontend-разработчик</span><br>+996 708 072 558<br>karamoldoevas@gmail.com<br>github.com/karamoldoevas-dev</p>
-              </div>
-            </header>
-            <h4 data-i18n="cvProfile">Профиль</h4>
-            <p data-i18n="cvProfileText">…</p>
-            <h4 data-i18n="workTitle">Проекты</h4>
-            <div class="row"><b>SAKU BEAUTY</b><span>2026</span></div><p data-i18n="p1Short">…</p>
-            <div class="row"><b data-i18n="p2Title">Кыргызстан</b><span>2026</span></div><p data-i18n="p2Short">…</p>
-            <div class="row"><b data-i18n="p3Title">TODO-список</b><span>2026</span></div><p data-i18n="p3Short">…</p>
-            <h4 data-i18n="skillsTitle">Навыки</h4>
-            <p>HTML5 · CSS3 · Flexbox · Grid · JavaScript · React · Redux · Git · GitHub · Vercel</p>
-            <h4 data-i18n="eduTitle">Образование</h4>
-            <div class="row"><b data-i18n="courseName">Окурмэн — Frontend-разработка</b><span data-i18n="finished">окончила</span></div>
-            <div class="row"><b data-i18n="uniName">Университет — английская филология</b><span data-i18n="year1">1 курс</span></div>
-            <div class="row"><b data-i18n="schoolName">Школа №40, Бишкек</b><span data-i18n="grades">1–11 классы</span></div>
-            <h4 data-i18n="achTitle">Достижения</h4>
-            <p data-i18n="achShort">…</p>
-            <h4 data-i18n="langsTitle">Языки</h4>
-            <p data-i18n="langsLine">…</p>
-          </article>
+          <article class="paper cv" id="cvSheet" tabindex="0" role="button" aria-label="CV">
+            <!-- ЛЕВАЯ КОЛОНКА: кто я и как связаться -->
+            <aside class="cv-side">
+              <img class="cv-photo" src="images/my-photo.jpg" alt="Saltanat Karamoldoeva">
+              <section>
+                <h4 data-i18n="cvContacts">Контакты</h4>
+                <ul class="cv-contacts">
+                  <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>+996 708 072 558</li>
+                  <li><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>karamoldoevas@gmail.com</li>
+                  <li><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.3 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>github.com/karamoldoevas-dev</li>
+                  <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>saltanat-portfolio.vercel.app</li>
+                  <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="cityFull">Бишкек, Кыргызстан</span></li>
+                </ul>
+              </section>
+              <section>
+                <h4 data-i18n="skillsTitle">Навыки</h4>
+                <div class="cv-skill"><b data-i18n="skLayout">Вёрстка</b><div class="chips"><span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>Grid</span><span data-i18n="chipResp">Адаптив</span><span data-i18n="chipAnim">Анимации</span></div></div>
+                <div class="cv-skill"><b>JavaScript</b><div class="chips"><span>DOM</span><span data-i18n="chipForms">Формы</span><span>fetch</span><span>localStorage</span></div></div>
+                <div class="cv-skill"><b>React</b><div class="chips"><span data-i18n="chipComp">Компоненты</span><span>useState</span><span>useEffect</span><span>Redux</span></div></div>
+                <div class="cv-skill"><b data-i18n="skTools">Инструменты</b><div class="chips"><span>Git</span><span>GitHub</span><span>Vercel</span></div></div>
+              </section>
+              <section>
+                <h4 data-i18n="langsTitle">Языки</h4>
+                <div class="cv-lang"><span><span data-i18n="langKg">Кыргызский</span><small data-i18n="native">родной</small></span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+                <div class="cv-lang"><span><span data-i18n="langRu">Русский</span><small>C1</small></span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+                <div class="cv-lang"><span><span data-i18n="langEn">Английский</span><small>B2</small></span><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+              </section>
+              <section>
+                <h4 data-i18n="achTitle">Достижения</h4>
+                <ul class="cv-plain"><li data-i18n="ach1">2 место по волейболу — диплом</li><li data-i18n="ach2">Грамота школы за учёбу и активность</li></ul>
+              </section>
+              <section>
+                <h4 data-i18n="hobbiesTitle">Хобби</h4>
+                <ul class="cv-plain"><li data-i18n="hob1">Книги</li><li data-i18n="hob2">Волейбол</li><li data-i18n="hob3">Дизайн и стиль</li></ul>
+              </section>
+            </aside>
 
-          <article class="paper page" tabindex="0" aria-label="CV 2">
-            <header class="cv-head no-photo">
-              <div><h3 data-i18n="name">Салтанат Карамолдоева</h3><p><span data-i18n="role">Frontend-разработчик</span><br><span data-i18n="page2Sub">Лист 2 — письмо и проекты</span></p></div>
-            </header>
-            <h4 data-i18n="whyTitle">Почему я</h4>
-            <div class="letter">
-              <p data-i18n="letter1">…</p>
-              <p data-i18n="letter2">…</p>
-              <p data-i18n="letter3">…</p>
-              <p class="sign" data-i18n="sign">— Салтанат</p>
-            </div>
-            <h4 data-i18n="workTitle">Проекты</h4>
-            <div class="thumbs">
-              <div><span class="pic"><img src="images/saku-beauty.jpg" alt=""></span><b>SAKU BEAUTY</b><span data-i18n="p1Tiny">Интернет-магазин на React</span></div>
-              <div><span class="pic"><img src="images/kyrgyzstan.png" alt=""></span><b data-i18n="p2Title">Кыргызстан</b><span data-i18n="p2Tiny">Регионы и традиции</span></div>
-              <div><span class="pic"><img src="images/todo.png" alt=""></span><b data-i18n="p3Title">TODO-список</b><span data-i18n="p3Tiny">Дела на JavaScript</span></div>
+            <!-- ПРАВАЯ КОЛОНКА: что я умею и что сделала -->
+            <div class="cv-main">
+              <header class="cv-title">
+                <h3><span data-i18n="firstName">Салтанат</span><br><span data-i18n="lastName">Карамолдоева</span></h3>
+                <p class="cv-role" data-i18n="role">Frontend-разработчик</p>
+                <div class="cv-bar"></div>
+              </header>
+              <section>
+                <h5><span class="n">01</span><span data-i18n="navAbout">Обо мне</span></h5>
+                <p class="cv-lead" data-i18n="cvAbout">…</p>
+              </section>
+              <section>
+                <h5><span class="n">02</span><span data-i18n="workTitle">Проекты</span></h5>
+                <div class="cv-proj"><h6>SAKU BEAUTY<em data-i18n="kindMain">Главный проект</em></h6><span class="yr">2026</span>
+                  <p data-i18n="p1Cv">…</p><div class="tech">React · Redux · CSS · Vercel</div></div>
+                <div class="cv-proj"><h6><span data-i18n="p2Title">Кыргызстан</span><em data-i18n="kindStudy">Учебный проект</em></h6><span class="yr">2026</span>
+                  <p data-i18n="p2Cv">…</p><div class="tech">HTML · CSS · JavaScript · SVG</div></div>
+                <div class="cv-proj"><h6><span data-i18n="p3Title">TODO-список</span><em data-i18n="kindStudy">Учебный проект</em></h6><span class="yr">2026</span>
+                  <p data-i18n="p3Cv">…</p><div class="tech">JavaScript · localStorage</div></div>
+              </section>
+              <section>
+                <h5><span class="n">03</span><span data-i18n="eduTitle">Образование</span></h5>
+                <div class="cv-edu"><b data-i18n="courseName">Окурмэн — Frontend-разработка</b><span data-i18n="finished">окончила</span><p data-i18n="courseShort">…</p></div>
+                <div class="cv-edu"><b data-i18n="uniName">Университет — английская филология</b><span data-i18n="uniWhen">Сейчас · 1 курс</span></div>
+                <div class="cv-edu"><b data-i18n="schoolName">Школа №40, Бишкек</b><span data-i18n="grades">1–11 классы</span></div>
+              </section>
+              <section>
+                <h5><span class="n">04</span><span data-i18n="strengthsTitle">Сильные стороны</span></h5>
+                <div class="cv-quals">
+                  <div><b data-i18n="q1">…</b><span data-i18n="q1t">…</span></div>
+                  <div><b data-i18n="q2">…</b><span data-i18n="q2t">…</span></div>
+                  <div><b data-i18n="q3">…</b><span data-i18n="q3t">…</span></div>
+                  <div><b data-i18n="q4">…</b><span data-i18n="q4t">…</span></div>
+                </div>
+              </section>
+              <p class="cv-quote"><span data-i18n="letter3">…</span><small data-i18n="sign">— Салтанат</small></p>
             </div>
           </article>
         </div>
-        <!-- счётчик листов -->
-        <div class="pager">
-          <button id="prevPage" aria-label="‹">‹</button>
-          <span id="pageNum">1 / 2</span>
-          <span class="dots" id="dots"><i class="on"></i><i></i></span>
-          <button id="nextPage" aria-label="›">›</button>
-        </div>
+        <p class="cv-hint" data-i18n="cvZoom">Нажмите на лист, чтобы открыть крупно</p>
       </div>
+
+      <!-- резюме крупно (окно поверх сайта) -->
+      <dialog class="cv-big" id="cvBig" aria-label="CV">
+        <button class="cv-close" id="cvClose" aria-label="×">×</button>
+        <div class="cv-big-in" id="cvBigIn"></div>
+      </dialog>
     </section>
   </div>
 
@@ -230,6 +261,26 @@
         <a class="btn soft" href="https://instagram.com/moonella_uis_09" target="_blank" rel="noopener">Instagram ↗</a>
         <a class="btn soft" href="https://github.com/karamoldoevas-dev" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
+
+      <!-- форма «Давайте свяжемся»: письмо приходит на почту через сервис FormSubmit -->
+      <form class="cform" id="cform" novalidate>
+        <h3 data-i18n="formTitle">Или напишите мне здесь</h3>
+        <div class="cform-row">
+          <label><span data-i18n="formName">Имя</span>
+            <input name="name" autocomplete="name" required maxlength="80" data-ph="formNamePh">
+          </label>
+          <label><span data-i18n="formContact">Телефон или Gmail</span>
+            <input name="contact" autocomplete="email" required maxlength="120" data-ph="formContactPh">
+          </label>
+        </div>
+        <label><span data-i18n="formMsg">Сообщение</span>
+          <textarea name="message" rows="4" required maxlength="2000" data-ph="formMsgPh"></textarea>
+        </label>
+        <!-- ловушка для спам-ботов: человек это поле не видит -->
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit" id="cformBtn" data-i18n="formSend">Отправить</button>
+        <p class="cform-note" id="cformNote" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </div>
 
